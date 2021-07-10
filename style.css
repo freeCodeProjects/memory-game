@@ -1,0 +1,93 @@
+* {
+  padding   : 0;
+  margin    : 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color  : #264653;
+  --cyan-color  : #2A9D8F;
+  --yellow-color: #E9C46A;
+  --orange-color: #F4A261;
+  --red-color   : #E76F51;
+  --blue-color  : #0096c7;
+}
+
+.game {
+  height         : 100vh;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  background     : linear-gradient(to right, rgba(255, 255, 255, 0.5) 0 100%), url(./img/geometry.webp);
+  flex-direction : column;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size  : 2rem;
+  font-weight: 200;
+  color      : var(--dark-color);
+}
+
+.interface {
+  display       : flex;
+  flex-direction: column;
+}
+
+.controlbar {
+  display        : flex;
+  width          : 100%;
+  justify-content: space-between;
+  font-size      : 1.25rem;
+  color          : var(--dark-color);
+  padding        : 0.25rem 0.5rem;
+}
+
+.controlbar .fa-star {
+  color: gold;
+}
+
+.cards {
+  background           : linear-gradient(215deg, var(--orange-color), var(--yellow-color), var(--red-color));
+  display              : grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap                  : 2rem;
+  padding              : 2rem;
+  border-radius        : 0.5rem;
+  box-shadow           : 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  padding         : 2.75rem;
+  background-color: var(--dark-color);
+}
+
+.card {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  border-radius  : 0.5rem;
+  box-shadow     : 3px 3px 4px 3px rgba(116, 104, 104, 0.2);
+  cursor         : pointer;
+}
+
+.card .fas {
+  color    : var(--dark-color);
+  font-size: 2rem;
+}
+
+.open {
+  cursor          : default;
+  background-color: var(--blue-color);
+}
+
+.open .fas {
+  color: white;
+}
+
+.show {
+  background-color: var(--cyan-color);
+}
