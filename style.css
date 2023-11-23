@@ -14,8 +14,9 @@
 }
 
 .game {
-  height         : 100vh;
+  min-height     : 100vh;
   display        : flex;
+  padding        : 2rem 1rem;
   justify-content: center;
   align-items    : center;
   background     : linear-gradient(to right, rgba(255, 255, 255, 0.5) 0 100%), url(./img/geometry.webp);
@@ -35,12 +36,14 @@
 .interface {
   display       : flex;
   flex-direction: column;
+  width         : min(100%, 864px);
 }
 
 .controlbar {
   display        : flex;
-  width          : 100%;
   justify-content: space-between;
+  width          : 100%;
+  align-items    : end;
   font-size      : 1.25rem;
   color          : var(--dark-color);
   padding        : 0.25rem 0.5rem;
@@ -50,10 +53,23 @@
   color: gold;
 }
 
+.reset {
+  font-size : 1rem;
+  border    : none;
+  padding   : 0.5rem 1rem;
+  background: orange;
+  cursor    : pointer;
+}
+
+.reset:hover {
+  background: rgb(238, 178, 12)
+}
+
 .cards {
   background           : linear-gradient(215deg, var(--orange-color), var(--yellow-color), var(--red-color));
   display              : grid;
-  grid-template-columns: repeat(5, 1fr);
+  width                : 100%;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap                  : 2rem;
   padding              : 2rem;
   border-radius        : 0.5rem;
@@ -90,4 +106,27 @@
 
 .show {
   background-color: var(--cyan-color);
+}
+
+@media (max-width: 540px) {
+  .cards {
+    gap                  : 1rem;
+    padding              : 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .controlbar {
+    display              : grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap                  : 1rem;
+  }
+
+  .moves,
+  .reset {
+    justify-self: end;
+  }
 }
