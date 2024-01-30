@@ -60,7 +60,7 @@ const updateMoves = () => {
 	//perform action on move
 	if (moves === 1) {
 		startTimer()
-	} else if (moves === 30 || moves === 40) {
+	} else if (moves === 31 || moves === 41) {
 		stars -= 1
 		renderStar(stars)
 	}
