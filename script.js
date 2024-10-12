@@ -1,4 +1,3 @@
-//@ts-check
 const items = [
 	'anchor',
 	'anchor',
@@ -32,24 +31,35 @@ const shuffleItems = () => {
 
 const renderStar = (count) => {
 	const starsElm = document.querySelector('.stars')
-	let starHTMLs = ''
+	let starHTMLs = new DocumentFragment();
 	for (let i = 0; i < count; i++) {
-		starHTMLs += '<i class="fas fa-star"></i>'
+		const i = document.createElement('i')
+		i.className = "fas fa-star"
+		starHTMLs.appendChild(i)
 	}
-	starsElm.innerHTML = starHTMLs
+
+	starsElm.innerHTML = ''
+	starsElm.append(starHTMLs)
 }
 
 const renderCards = () => {
 	const cardsElm = document.querySelector('.cards')
-	let cardHTMLs = ''
+	let cardHTMLs = new DocumentFragment()
 
 	items.forEach((item, idx) => {
-		cardHTMLs += `<div class="card animate__animated" data-item="${item}">
-      <i class="fas fa-${item}"></i>
-    </div>`
-	})
+		let div = document.createElement('div')
+		div.className = "card animate__animated"
+		div.setAttribute('data-item', item)
 
-	cardsElm.innerHTML = cardHTMLs
+		const i = document.createElement('i')
+		i.className = `fas fa-${item}`
+
+		div.appendChild(i)
+		cardHTMLs.appendChild(div)
+	})
+	
+	cardsElm.innerHTML = ''
+	cardsElm.append(cardHTMLs)
 }
 
 const updateMoves = () => {
